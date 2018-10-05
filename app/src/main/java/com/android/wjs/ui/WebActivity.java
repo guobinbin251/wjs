@@ -66,8 +66,7 @@ public class WebActivity extends AppCompatActivity {
 
     private void initView() {
         mUrl = getIntent().getStringExtra(Constant.EXTRA_URL);
-
-        mUrl = getIntent().getStringExtra(Constant.EXTRA_URL);
+        //mUrl = "HTTPS://QR.ALIPAY.COM/FKX08172B5TLV6I8XZV961";
         type = getIntent().getStringExtra(Constant.EXTRA_TYPE);
 
 
@@ -104,8 +103,17 @@ public class WebActivity extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 //syncCookie(WebActivity.this, url);
-                view.loadUrl(url);
+                if (url.contains("platformapi/startapp")) {
+                    startAlipayActivity(url);
+                    // android  6.0 两种方式获取intent都可以跳转支付宝成功,7.1测试不成功
+                } else if ((Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
+                        && (url.contains("platformapi") && url.contains("startapp"))) {
+                    startAlipayActivity(url);
+                } else {
+                    mWebView.loadUrl(url);
+                }
                 return true;
+
             }
 
 
@@ -307,4 +315,18 @@ public class WebActivity extends AppCompatActivity {
     }
 
 
+    // 调起支付宝并跳转到指定页面
+    private void startAlipayActivity(String url) {
+        Intent intent;
+        try {
+            intent = Intent.parseUri(url,
+                    Intent.URI_INTENT_SCHEME);
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            intent.setComponent(null);
+            startActivity(intent);
+            finish();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
