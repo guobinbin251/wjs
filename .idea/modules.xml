@@ -4,9 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WJS.iml" filepath="$PROJECT_DIR$/WJS.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/wjs.iml" filepath="$PROJECT_DIR$/wjs.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/wjs.iml" filepath="$PROJECT_DIR$/.idea/wjs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wjs.iml" filepath="$PROJECT_DIR$/wjs.iml" />
     </modules>
   </component>
 </project>
