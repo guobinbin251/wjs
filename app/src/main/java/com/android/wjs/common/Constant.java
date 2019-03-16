@@ -6,7 +6,7 @@ package com.android.wjs.common;
 public class Constant {
 
     //public static final String API_DOMAIN = "http://47.52.228.62:8000";
-    public static final String API_DOMAIN = "http://wf888.fun";
+    public static final String API_DOMAIN = "https://wf888.fun";
 
     public static final int RET_CODE_OK = 1000;
     public static final int RET_NET_ERROR = 1001;
